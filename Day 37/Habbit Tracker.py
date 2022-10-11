@@ -4,7 +4,7 @@ from datetime import datetime as dt
 
 # Step 1 - Create your user account
 PIXELA_ENDPOINT = "https://pixe.la/v1/users"
-USERNAME = "prit"
+USERNAME = ""
 TOKEN = ""
 GRAPH_ID = "graph1"
 

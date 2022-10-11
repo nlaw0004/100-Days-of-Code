@@ -8,10 +8,12 @@ from tkinter import messagebox
 
 # Change the constans according to your own values
 TODAY = dt.now()
-TOKEN = "Your token"
-GRAPH_ID = "your graph id"
-USER_NAME = "your user name"
+TOKEN = ""
+GRAPH_ID = "graph1"
+USER_NAME = ""
+PIXELA_ENDPOINT = "https://pixe.la/v1/users"
 URL = f"https://pixe.la/v1/users/{USER_NAME}/graphs/{GRAPH_ID}.html"
+GRAPH_ENDPOINT = f"{PIXELA_ENDPOINT}/{USERNAME}/graphs"
 
 
 headers = {
@@ -85,5 +87,19 @@ delete.grid(row=2, column=2, pady=10, sticky="w")
 link = Button(text="Show\nGraph", command=open_browser)
 link.grid(row=2, column=3)
 
+# create tags for different habits. Each habit will have a name, graph id and colour.
+def create_tags(colour, name, graph_id, unit, type):
+    # creating a new graph definition
+    tag = {
+        "id": graph_id,
+        "name": name,
+        "unit": unit,
+        "type": type,
+        "color": colour,
+    }
+
+    # creating a new graph
+    requests.post(url=GRAPH_ENDPOINT, json=tag, headers=headers)
+    print(requests.txt)
 
 root.mainloop()
